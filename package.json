@@ -2,8 +2,10 @@
   "name": "react-remote-sortable-columns",
   "version": "1.0.0",
   "description": "Sort table columns by calling restful apis",
-  "main": "index.js",
+  "main": "build/index.js",
   "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "webpack": "^3.10.0"
   },
@@ -13,7 +15,9 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,6 +1,6 @@
 var path = require('path');
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
@@ -10,18 +10,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        loader: 'babel-loader',
         include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components|build)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+        query: {
+          presets: ['react', 'es2015', 'env'],
+          plugins: ['transform-react-jsx']
         }
       }
     ]
-  },
-  externals: {
-    'react': 'commonjs react'
   }
 };
