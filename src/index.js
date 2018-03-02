@@ -22,12 +22,14 @@ class TR extends Component {
   }
 
   render() {
-    const {children, sortKey, sortDir} = this.props;
+    const {children, sortKey, sortDir, descClass = 'fa fa-sort-desc', ascClass = 'fa fa-sort-asc'} = this.props;
 
-    let childrenWithProps = React.Children.map(children, child => React.cloneElement(child, {
+    let childrenWithProps = React.Children.map(children, child => child && React.cloneElement(child, {
       handleClick: this.handleClick.bind(this),
       sortKey: sortKey,
-      sortDir: sortDir
+      sortDir: sortDir,
+      descClass,
+      ascClass
     }))
 
     return (
@@ -41,24 +43,26 @@ class TR extends Component {
 TR.propTypes = {
   sortDir: PropTypes.string,
   sortKey: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  descClass: PropTypes.string,
+  ascClass: PropTypes.string
 }
 
 
 /**
  * TableHeader(TH) Component
  */
-const TH = ({sortKey, sortDir, children, handleClick, column, ...props}) => {
+const TH = ({sortKey, sortDir, children, handleClick, column, descClass, ascClass, ...props}) => {
   const icon = sortDir === 'desc'
-    ? 'fa-sort-desc'
-    : 'fa-sort-asc'
+    ? descClass
+    : ascClass
 
   return (column
     ? <th
         {...props}
         className={classNames("pointer", props.className)}
         onClick={() => handleClick(column)}>
-        {sortKey === column && <i className={classNames("pull-right fa", icon)}></i>}
+        {sortKey === column && <i className={classNames("pull-right", icon)}></i>}
         {children}
       </th>
     : <th {...props}>{children}</th>)
