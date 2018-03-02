@@ -1,19 +1,20 @@
-# React Remote Sortable Columns
+# [React Remote Sortable Columns](https://github.com/ali-sheiba/react-remote-sortable-columns)
 
 [![npm version](https://img.shields.io/npm/v/react-remote-sortable-columns.svg?style=flat-square)](https://www.npmjs.org/package/react-remote-sortable-columns)
 
 Sort table data using remote api by click and toggle the table columns.
 
+![alt='Example'](example.gif)
+
 --------------------------------------------------------------------------------
 
-
-### Install via NPM
+## Install via NPM
 
 ```
 npm install --save react-remote-sortable-columns
 ```
 
-### Install via Yarn
+## Install via Yarn
 
 ```
 yarn add react-remote-sortable-columns
@@ -21,24 +22,25 @@ yarn add react-remote-sortable-columns
 
 --------------------------------------------------------------------------------
 
-
 ## Components Usage
 
 The package will provide 2 components `TR` and `TH`:
 
 ### `TR` Table Row Component Props
 
-Prop       | type       | description
----------- | ---------- | ------------
-`sortKey`  | string     | The current sort column name/key
-`sortDir`  | string     | The current sort direction
-`onChange` | function   | Function will called on column clicked and will pass the column identifier and direction
-`children` | components | Header row columns using `<TH ...></TH>` component
+Prop        | type       | default           | description
+----------- | ---------- | ----------------- | ----------------------------------------------------------------------------------------
+`sortKey`   | string     | `Null`            | The current sort column name/key
+`sortDir`   | string     | `Null`            | The current sort direction
+`onChange`  | function   | `Null`            | Function will called on column clicked and will pass the column identifier and direction
+`ascClass`  | string     | `fa fa-sort-asc`  | Css class on ASC sorting
+`descClass` | string     | `fa fa-sort-desc` | Css class on Desc sorting
+`children`  | components |                   | Header row columns using `<TH ...></TH>` component
 
 ### `TH` Table Header Component Props
 
 Prop       | Type       | Description
----------- | ------     | -----------------
+---------- | ---------- | -----------------
 `column`   | string     | Column identifier
 `children` | components | Column text
 
@@ -48,7 +50,7 @@ Other props will be passed to the `th` component such as `className`, `colSpan` 
 
 ## Example
 
-```js
+```javascript
 import React, {Component} from 'react'
 import {TR, TH} from 'react-remote-sortable-columns'
 
@@ -115,7 +117,7 @@ class Index extends Component {
 
 ## TODO:
 
-- [ ] allow to customize the internal class names
+- [x] allow to customize the internal class names
 - [ ] write test
 
 --------------------------------------------------------------------------------
